@@ -31,6 +31,29 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.btncalculo)
     public void hacerCalculo(){
-        Toast.makeText(this,"Presiones", Toast.LENGTH_LONG).show();
+        if(rbsuma.isChecked()){
+            int num1=convertToInt(txtnum1.getText().toString());
+            int num2=convertToInt(txtnum2.getText().toString());
+
+            int res=num1+num2;
+
+            Toast.makeText(this,"Resultado: "+res, Toast.LENGTH_LONG).show();
+        }else if (rbresta.isChecked()){
+            int num1=convertToInt(txtnum1.getText().toString());
+            int num2=convertToInt(txtnum2.getText().toString());
+
+            int res=num1-num2;
+
+            Toast.makeText(this,"Resultado: "+res, Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+    private int convertToInt(String cadena){
+        try {
+            return Integer.parseInt(cadena);
+        }catch (NumberFormatException e ){
+            return 0;
+        }
     }
 }
